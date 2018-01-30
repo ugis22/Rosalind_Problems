@@ -1,3 +1,3 @@
-# bioinformatics_algorithm_text_book_problems
+# Rosalind_Problems
 
 Problems from Rosalind and the Bioinformatics Algorithms - An Active Learning Approach solved with Python

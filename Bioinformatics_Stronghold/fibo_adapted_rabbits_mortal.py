@@ -1,14 +1,11 @@
 # Uses python3
 def calc_fib(n, k):
     """
-    Given: Positive integers n≤40 and k≤5.
+    Given: Positive integers n≤100 and m≤20.
 
-     Return: The total number of rabbit pairs that 
+    Return: The total number of pairs of rabbits that will remain 
 
-     will be present after n months, if we begin with 1 pair and in each generation, 
-
-     every pair of reproduction-age rabbits produces a litter of k rabbit pairs (instead of only 1 pair).
-
+    after the n-th month if all rabbits live for m months.
     """
 
     array = [1, 1, 1]

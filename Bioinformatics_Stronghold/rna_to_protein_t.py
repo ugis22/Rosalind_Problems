@@ -18,6 +18,10 @@ codon_dictionary = {
     }
 
 def translate_prot(rna):
+    '''Given: An RNA string s corresponding to a strand of mRNA (of length at most 10 kbp).
+
+    Return: The protein string encoded by s.'''
+
 	assert rna[0:3] == 'AUG'
 	protein_syn = ''
 

@@ -56,6 +56,11 @@ f.close()"""
 
 def count_gc(strings):
     maximo = 0
+    ''' Given: At most 10 DNA strings in FASTA format (of length at most 1 kbp each).
+
+    Return: The ID of the string having the highest GC-content, 
+
+    followed by the GC-content of that string.''' 
 
     for name, string in strings.items():
         contenido = ((string.count('C')+string.count('G'))/len(string))*100

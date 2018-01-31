@@ -21,33 +21,26 @@ def consensus(dna):
     Return: A consensus string and profile matrix for the collection. 
     If several possible consensus strings exist, then you may return any one of them."""
     m = len(dna[0])
+    nucleotides_list = ['A', 'C', 'G', 'T']
     consensus_dna = ''
 
     matrix_consensus = np.zeros(shape = (4, m), dtype = int)
 
     for i in range(m):
-        nucle = []
+        nucle_at_curr_position = []
         for j in range(len(dna)):
-            nucle.append(dna[j][i])
+            nucle_at_curr_position.append(dna[j][i])
 
 
-        lista = [nucle.count('A'), nucle.count('C'), nucle.count('G'), nucle.count('T')]    
+        lista = [nucle_at_curr_position.count('A'), nucle_at_curr_position.count('C'), nucle_at_curr_position.count('G'), 
+                nucle_at_curr_position.count('T')]    
        
         matrix_consensus[0, i] = lista[0]
         matrix_consensus[1, i] = lista[1]
         matrix_consensus[2, i] = lista[2]
         matrix_consensus[3, i] = lista[3]
                
-        maximo = lista.index(max(lista))
-
-        if maximo == 0:
-            consensus_dna += 'A'
-        elif maximo == 1:
-            consensus_dna += 'C'
-        elif maximo == 2:
-            consensus_dna += 'G'
-        else:
-            consensus_dna += 'T'
+        consensus_dna += nucleotides_list[lista.index(max(lista))]
 
     assert len(consensus_dna) == len(dna[0])
 
@@ -57,11 +50,9 @@ def write_file(names):
     results = consensus(names)
     
     consensus_final = str(results[0])
-    #matrix_final = '\n'.join(map(str, results[1].tolist()))
     matrix_final = results[1].tolist()
 
 
-    
     with open('results_rosalind_cons.txt', 'w') as final_file:
 
         final_file.write(consensus_final+'\n')

@@ -4,7 +4,6 @@ def dna(string):
     Return: Four integers (separated by spaces) counting the respective 
     number of times that the symbols 'A', 'C', 'G', and 'T' occur in s."""
 
-
     a = [string.count('A'), string.count('C'), string.count('G'), string.count('T')]
     print(" ".join(map(str, a)))
 

@@ -1,3 +1,3 @@
 # Rosalind Problems
 
-Problems from Rosalind and the Bioinformatics Algorithms - An Active Learning Approach solved with Python
+Problems from Rosalind and Bioinformatics Algorithms - An Active Learning Approach solved with Python

@@ -16,9 +16,10 @@ def pattern_to_number(pattern):
 	
 	return 4*pattern_to_number(prefix)+symbol_to_number(symbol)
 
-def results(pattern):
+'''def results(pattern):
 	result = pattern_to_number(pattern)
 	print(result)
 
 
 results('GTTGCGATACGTCCACGACCTCTAATATGC')	
+'''

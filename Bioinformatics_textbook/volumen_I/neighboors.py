@@ -22,3 +22,10 @@ def neighbors(pattern, d):
 			
 	return neighborhood
 
+'''def results(pattern, d):
+	result = neighbors(pattern, d)
+	for i in result:
+		print(i)
+
+results('CGAATGTAGGGA', 2)'''
+

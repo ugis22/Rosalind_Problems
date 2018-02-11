@@ -15,10 +15,10 @@ def neighbors(text, d):
 		#IF the hamming distance is less than d add any symbol in first position
 		if hamming_distance(pattern[1:], text) < d:
 			for i in nucleotides:
-				neighborhood.append(i+text)
+				neighborhood.add(i+text)
 		#If hamming distance is exactly d add the first symbol of pattern
 		else:
-			neighborhood.append(pattern[0]+text)
+			neighborhood.add(pattern[0]+text)
 			
 	return neighborhood
 

@@ -5,5 +5,5 @@ def immediate_neig(pattern):
 		symbol = pattern[i]
 		for j in nucleotides:
 			if j != symbol:
-				neighborhood.append(pattern[:i]+j+[pattern[i+1:]])
+				neighborhood.add(pattern[:i]+j+[pattern[i+1:]])
 	return neighborhood

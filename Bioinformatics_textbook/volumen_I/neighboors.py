@@ -1,6 +1,6 @@
 from HammingDistance import hamming_distance
 
-def neighbors(text, d):
+def neighbors(pattern, d):
 	nucleotides = ['A', 'C', 'G', 'T']
 	if d == 0:
 		return pattern

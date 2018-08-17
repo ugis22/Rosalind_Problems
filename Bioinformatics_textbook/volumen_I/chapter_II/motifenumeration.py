@@ -1,6 +1,6 @@
-def distance(a,b):
+def hamming_distance(a,b):
 	distance = 0
-	
+
 	for i in range(len(a)):
 		if a[i] != b[i]:
 			distance += 1
@@ -15,14 +15,18 @@ def neighbors(pattern, d):
 		return nucleotides
 
 	neighborhood = set()
-	suffixneigh = neighbors(pattern[1:], d)
+	#we generate all the neighbors for (k-1)mer pattern
+	suffix_neig = neighbors(pattern[1:], d)
 
-	for text in suffixneigh:
-		if distance(pattern[1:], text) < d:
-			for j in nucleotides:
-				neighborhood.add(j+text)
+	for text in suffix_neig:
+		#IF the hamming distance is less than d add any symbol in first position
+		if hamming_distance(pattern[1:], text) < d:
+			for i in nucleotides:
+				neighborhood.add(i+text)
+		#If hamming distance is exactly d add the first symbol of pattern
 		else:
 			neighborhood.add(pattern[0]+text)
+			
 	return neighborhood
 
 def motifenumeration(dna, k, d):
@@ -30,19 +34,19 @@ def motifenumeration(dna, k, d):
 	kmers =[]
 
 	for pattern in dna:
-		for i in range(len(pattern) + k -1):
-			kmers.append(neighbors(pattern[i:i+k], d))
+		for i in range(len(pattern)-k+1):
+			kmers += list(neighbors(pattern[i:i+k], d))
 
 
-	
 	for kmer in kmers:
 		mydict = {}
 		for pattern in dna:
 			for i in range(len(pattern)-k+1):
-				if distance(kmer, pattern[i:i+k]) <= d:
+				if hamming_distance(kmer, pattern[i:i+k]) <= d:
 					mydict.setdefault(pattern, []).append(kmer)
 		if len(mydict.keys()) == len(dna):
 			patterns.add(kmer)
-	return patterns
+	return ' '.join(patterns)
+
 
 

@@ -58,7 +58,7 @@ def create_profile(motifs):
 		for i in range(len(kmer)):
 			profile[nucleotides[kmer[i]], i] += 1
 
-	profile = (profile+1)/(len(motifs)+1)
+	profile = (profile+1)/(len(motifs)+4)
 
 	return profile
 

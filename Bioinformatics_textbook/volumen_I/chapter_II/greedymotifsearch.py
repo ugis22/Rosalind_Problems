@@ -8,6 +8,8 @@ in a given string, use the one occurring first.
 '''
 
 import numpy as np
+import distancepatterncollection
+import profilemostprobable
 
 nucleotides = {
 	'A': 0,
@@ -16,9 +18,30 @@ nucleotides = {
 	'T': 3
 }
 
+nucleotides_reverse = {
+	0: 'A',
+	1: 'C',
+	2: 'G',
+	3: 'T'
+}
 
-#def score():
 
+def find_consensus(motifs):
+	profile = np.array(create_profile(motifs))
+	consensus = ''
+
+	for i in range(len(motifs[0])):
+		count_num = np.argmax(profile[:,i])
+
+		consensus += nucleotides_reverse[count_num]
+
+	return consensus
+
+
+def score(motifs):
+	consensus = find_consensus(motifs)
+	
+	return distancepatterncollection.hamming_distance(consensus, motifs)
 
 
 def create_profile(motifs):
@@ -31,27 +54,29 @@ def create_profile(motifs):
 
 	profile = profile/len(motifs)
 
+	return profile
+
 
 def greedymotif(dna, k, t):
 
 
-	BestMotifs = [string[i][:k] for string in dna]
+	BestMotifs = [string[:k] for string in dna]
 
 	first_strand = dna[0]
-	rest_strand = dna[1:]
+	rest_strand = dna[1:t]
 
 	for i in range(len(first_strand)-k+1):
 		motif_first = [first_strand[i:i+k]]
 		for strand in rest_strand:
 			profile = create_profile(motif_first)
-			motif_first.append(kmer(strand, k, profile))
+			motif_first.append(profilemostprobable.profilemost(strand, k, profile))
 
 		if score(motif_first) < score(BestMotifs):
 			BestMotifs = motif_first
 
-	return ''.join(BestMotifs)
+	return ' '.join(BestMotifs)
 
-
-
+a = greedymotif(['GGCGTTCAGGCA','AAGAATCAGTCA','CAAGGAGTTCGC','CACGTCAATCAC','CAATAATATTCG'],3,5)
+print(a)
 
 

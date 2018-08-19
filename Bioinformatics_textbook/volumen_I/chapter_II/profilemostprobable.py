@@ -10,7 +10,7 @@ Output: A Profile-most probable k-mer in Text.
 """
 import numpy as np
 
-
+'''
 with open('rosalind_ba2c.txt') as file:
 	i= 0
 	matrix_2 = []
@@ -31,6 +31,8 @@ matrix = []
 for i in range(4):
 	matrix.append(matrix_2[i].split())
 
+'''
+
 
 nucleotides = {
 	'A': 0,
@@ -50,6 +52,7 @@ def probability(kmer, d):
 def profilemost(pattern, k, matrix):
 	mostprob = pattern[:k]
 	kmer_maximus = 0
+	kmer_most_probable = pattern
 
 	matrix = np.array(matrix)
 
@@ -66,7 +69,9 @@ def profilemost(pattern, k, matrix):
 	return kmer_most_probable
 
 
+'''
 a = profilemost(pattern, k, matrix)
 print(a)
+'''
 
 

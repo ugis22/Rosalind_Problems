@@ -10,16 +10,16 @@ file.close()
 
 
 
-def gibbs(dna, k, t, N):
+def gibbs(dna, k, t, n):
 	motifs = []
 
 	for string in dna:
-		i = random.randint(0, len(dna[0])-k)
-		motifs.append(string[i:i+k])
+		index = random.randint(0, len(dna[0])-k)
+		motifs.append(string[index:index+k])
 
 	BestMotifs = motifs
 
-	for j in range(N):
+	for j in range(n):
 		i = random.randint(0, t-1)
 
 		del motifs[i]
@@ -30,14 +30,14 @@ def gibbs(dna, k, t, N):
 
 		if greedypseudo.score(motifs) < greedypseudo.score(BestMotifs):
 			BestMotifs = motifs
-		else:
-			return BestMotifs
 
-def repgibbs(dna, k, t, N):
+	return BestMotifs
+
+def repgibbs(dna, k, t, n):
 	best_score = k*t
 
-	for i in range(1000):
-		current_motifs = gibbs(dna, k, t, N)
+	for i in range(20):
+		current_motifs = gibbs(dna, k, t, n)
 		current_score = greedypseudo.score(current_motifs)
 		if current_score<best_score:
 			best_score = current_score
@@ -45,7 +45,7 @@ def repgibbs(dna, k, t, N):
 
 	return best_motifs
 
-a = repgibbs(dna, 15, 20,2000)
+a = repgibbs(dna, 15, 20, 2000)
 for line in a:
 	print(line)
 

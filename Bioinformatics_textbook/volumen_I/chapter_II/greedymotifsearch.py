@@ -25,12 +25,14 @@ nucleotides_reverse = {
 	3: 'T'
 }
 
-
+'''
 with open('rosalind_ba2d.txt') as file:
 	dna = []
 	for line in file.read().splitlines():
 		dna.append(line.strip())
 file.close()
+
+'''
 
 
 def find_consensus(motifs):
@@ -83,8 +85,10 @@ def greedymotif(dna, k, t):
 
 	return BestMotifs
 
+'''
 a = greedymotif(dna,12,25)
 for b in a:
 	print(b)
+'''
 
 

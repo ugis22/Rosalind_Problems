@@ -1,5 +1,6 @@
 import numpy as np
 
+'''
 with open('rosalind_ba2h.txt') as file:
 	i = 0
 	dna = []
@@ -13,6 +14,8 @@ with open('rosalind_ba2h.txt') as file:
 file.close()
 
 dna = dna[0].split()
+'''
+
 
 def number_to_symbol(index):
 	symbols_list = {
@@ -55,6 +58,8 @@ def hamming_distance(pattern, dna):
 		distance += hamming
 	return distance
 
+'''
 a = hamming_distance(pattern, dna)
 print(a)
+'''
 

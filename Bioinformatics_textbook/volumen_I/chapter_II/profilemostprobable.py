@@ -52,7 +52,7 @@ def probability(kmer, d):
 def profilemost(pattern, k, matrix):
 	mostprob = pattern[:k]
 	kmer_maximus = 0
-	kmer_most_probable = pattern
+	kmer_most_probable = pattern[:k]
 
 	matrix = np.array(matrix)
 

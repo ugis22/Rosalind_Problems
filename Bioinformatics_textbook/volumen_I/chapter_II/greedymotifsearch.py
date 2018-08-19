@@ -26,6 +26,13 @@ nucleotides_reverse = {
 }
 
 
+with open('rosalind_ba2d.txt') as file:
+	dna = []
+	for line in file.read().splitlines():
+		dna.append(line.strip())
+file.close()
+
+
 def find_consensus(motifs):
 	profile = np.array(create_profile(motifs))
 	consensus = ''
@@ -48,8 +55,8 @@ def create_profile(motifs):
 
 	profile = np.zeros(shape = (4, len(motifs[0])))
 
-	for i in  range(len(motifs[0])):
-		for kmer in motifs:
+	for kmer in motifs:
+		for i in range(len(kmer)):
 			profile[nucleotides[kmer[i]], i] += 1
 
 	profile = profile/len(motifs)
@@ -74,9 +81,10 @@ def greedymotif(dna, k, t):
 		if score(motif_first) < score(BestMotifs):
 			BestMotifs = motif_first
 
-	return ' '.join(BestMotifs)
+	return BestMotifs
 
-a = greedymotif(['GGCGTTCAGGCA','AAGAATCAGTCA','CAAGGAGTTCGC','CACGTCAATCAC','CAATAATATTCG'],3,5)
-print(a)
+a = greedymotif(dna,12,25)
+for b in a:
+	print(b)
 
 

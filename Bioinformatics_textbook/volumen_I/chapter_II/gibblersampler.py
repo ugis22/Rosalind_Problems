@@ -9,7 +9,6 @@ with open('rosalind_ba2g.txt') as file:
 file.close()
 
 
-
 def gibbs(dna, k, t, n):
 	motifs = []
 

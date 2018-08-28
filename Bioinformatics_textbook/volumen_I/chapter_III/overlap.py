@@ -6,7 +6,6 @@ class Graph(object):
 		self.__graph_dict = graph_dict
 
 
-	
 
 
 

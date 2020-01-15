@@ -5,4 +5,4 @@ This repository contains files with the code to answer the problems presented in
 ## Repo structure
 This repo contains two main folders: 
   1. Bioinformatic Stronghold
-  2. 
+  2. Bioinformatics textbook

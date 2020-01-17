@@ -6,3 +6,5 @@ This repository contains files with the code to answer the problems presented in
 This repo contains two main folders: 
   1. Bioinformatic Stronghold
   2. Bioinformatics textbook
+  
+ ## Chapters

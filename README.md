@@ -9,4 +9,6 @@ This repo contains two main folders:
   
  ## Chapters
 Chapter I:  
-Chapter II:
+Chapter II:  
+Chapter III:  
+
